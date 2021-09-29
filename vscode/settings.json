@@ -1,0 +1,60 @@
+{
+  "explorer.confirmDragAndDrop": false,
+  "editor.minimap.enabled": false,
+  "git.enabled": false,
+  "explorer.confirmDelete": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "editor.formatOnSave": true,
+  "editor.detectIndentation": false,
+  "editor.tabSize": 4,
+
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[css]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "html": "html"
+  },
+
+  "search.exclude": {
+    "**/__pycache__": true
+  },
+  "files.exclude": {
+    "**/__pycache__": true
+  },
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.pythonPath": "/usr/local/bin/python3",
+  "python.formatting.provider": "yapf",
+  "python.autoComplete.addBrackets": true,
+  "python.languageServer": "Pylance",
+  "python.analysis.extraPaths": ["~/python"],
+  "python.analysis.completeFunctionParens": true,
+  "python.defaultInterpreterPath": "python3",
+
+  "[go]": {
+    "editor.tabSize": 8
+  },
+  "go.useLanguageServer": true
+}
+

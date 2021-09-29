@@ -1,4 +1,4 @@
-filetype plugin indent on
+filetype on
 syntax on
 set encoding=utf-8
 set background=dark
@@ -22,7 +22,7 @@ autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 colorcolum
 autocmd FileType go setlocal tabstop=8 shiftwidth=8 softtabstop=8 
 autocmd FileType html,htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2 
 autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 
-autocmd FileType go execute 'Lint' | cwindow
+autocmd FileType yaml setlocal expandtab
 
 set wildmenu
 set wildmode=full
@@ -33,7 +33,6 @@ set ignorecase
 set incsearch
 set showmatch
 set novb
-set vb t_vb=
 set backspace=indent,eol,start
 set history=1000
 set nobackup
@@ -45,7 +44,7 @@ set shell=zsh
 set splitbelow
 set splitright
 
-set pastetoggle=<F5>
+set pastetoggle=<F4>
 
 let mapleader=","
 :command! W w
@@ -80,4 +79,6 @@ if &diff
     map <leader>2 :diffget BASE<CR>
     map <leader>3 :diffget REMOTE<CR>
 endif
-
+"golang
+autocmd FileType go map <F5> :%!gofmt<CR>
+autocmd FileType go map <F6> :%!goimports<CR>

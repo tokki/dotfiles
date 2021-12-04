@@ -71,28 +71,21 @@ zstyle ':completion:*' rehash true
 alias grep="grep -n --color"
 alias ls='ls -G'
 
-alias chrome="open /Applications/Google\ Chrome.app"
-
-
 export GOPATH='/Users/70k/go'
-export GOPROXY=https://goproxy.io
-
-
+export GOPROXY=https://goproxy.cn
 export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
-
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="/Users/70k/go/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 
 alias ip="curl cip.cc"
-
 alias pc="proxychains4"
 
 proxy () {
-  export all_proxy="socks5://127.0.0.1:1086"
-  echo "翻！走的ss"
+  export all_proxy="socks5://127.0.0.1:7890"
+  echo "翻！走的clash"
 }
 noproxy () {
   unset all_proxy
@@ -100,5 +93,3 @@ noproxy () {
 }
 
 alias https=‘http --default-scheme=https’
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

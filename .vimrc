@@ -18,10 +18,9 @@ set softtabstop=4
 set colorcolumn=0
 set textwidth=0
 set autoindent
+
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 colorcolumn=80 textwidth=79
 autocmd FileType go setlocal tabstop=8 shiftwidth=8 softtabstop=8 
-autocmd FileType html,htmldjango setlocal tabstop=2 shiftwidth=2 softtabstop=2 
-autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 
 autocmd FileType yaml setlocal expandtab
 
 set wildmenu
@@ -37,13 +36,10 @@ set backspace=indent,eol,start
 set history=1000
 set nobackup
 set noswapfile
-
 set autochdir
 set shell=zsh
-
 set splitbelow
 set splitright
-
 set pastetoggle=<F4>
 
 let mapleader=","
@@ -79,6 +75,6 @@ if &diff
     map <leader>2 :diffget BASE<CR>
     map <leader>3 :diffget REMOTE<CR>
 endif
+
 "golang
-autocmd FileType go map <F5> :%!gofmt<CR>
-autocmd FileType go map <F6> :%!goimports<CR>
+autocmd FileType go map <F5> :%!goimports<CR>

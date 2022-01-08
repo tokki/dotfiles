@@ -7,12 +7,3 @@
 ╚═════╝  ╚═════╝    ╚═╝   ╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝                                                                                       
                                                              
 ```
-
-
-###install
-
-python yapf
-nodejs prettier
-
-###run
-F3 format code

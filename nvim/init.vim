@@ -1,18 +1,10 @@
-call plug#begin()
-Plug 'fatih/molokai'
-Plug 'dense-analysis/ale'
-Plug 'vim-airline/vim-airline'
-call plug#end()
-
 filetype on
 syntax on
 set encoding=utf-8
 set background=dark
 set nu
 set guifont=Monaco:h13
-let g:rehash256 = 1
-let g:molokai_original = 1
-colorscheme molokai
+colorscheme sonokai
 set scrolloff=3
 set ruler
 set laststatus=2
@@ -40,13 +32,10 @@ set backspace=indent,eol,start
 set history=1000
 set nobackup
 set noswapfile
-
 set autochdir
 set shell=zsh
-
 set splitbelow
 set splitright
-
 set pastetoggle=<F4>
 
 let mapleader=","
@@ -54,7 +43,12 @@ let mapleader=","
 :command! Q q
 
 nmap <leader><space>  :nohlsearch<CR>
-map <leader>s :source ~/.vimrc<CR>
+
+nmap <c-t> :NvimTreeToggle<CR>
+
+nmap ,d <cmd>lua vim.lsp.buf.definition()<CR>
+nmap ,k <cmd>lua vim.lsp.buf.hover()<CR>
+nmap ,f <cmd>lua vim.lsp.buf.formatting()<CR> 
 
 nmap <c-h> <c-w>h
 nmap <c-l> <c-w>l
@@ -83,38 +77,10 @@ if &diff
     map <leader>3 :diffget REMOTE<CR>
 endif
 
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
+lua require('plugins')
+lua require('themes')
 
-" ale config
-let g:ale_linters_explicit = 1
-let g:ale_completion_enabled = 1
-set omnifunc=ale#completion#OmniFunc
-let g:ale_fix_on_save = 1
-let g:airline#extensions#ale#enabled = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_enter = 0
-let g:ale_lint_delay = 1000
-let g:ale_set_highlights = 1
-let g:ale_set_quickfix = 1
-let g:ale_open_list = 1
-let g:ale_keep_list_window_open = 1
-
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚡'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-let g:ale_linters = {
-\   'python': ['pylint'],
-\   'go': ['gopls'],
-\}
-let g:ale_fixers = {
-\   'python':['yapf'],
-\   'go': ['goimports'],
-\}
-" ctrl+o go back
-map <leader>d :ALEGoToDefinition<CR>
+lua require('plug/treesitter')
+lua require('plug/bufferline')
+lua require('plug/tree')
+lua require('plug/lsp')

@@ -4,16 +4,17 @@ set encoding=utf-8
 set background=dark
 set nu
 set guifont=Monaco:h13
-colorscheme default
+colorscheme slate
 set scrolloff=3
 set ruler
 set laststatus=2
 set title
 set statusline=%t\ %y\ [line:\ %l]\ [col:\ %c]\ [format:\ %{&ff}]
 
+set tabstop=4
 set shiftwidth=4
-set colorcolumn=0
-set textwidth=0
+set softtabstop=4
+set textwidth=80
 set autoindent
 
 autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
@@ -22,6 +23,7 @@ autocmd FileType go setlocal tabstop=8 shiftwidth=8 softtabstop=8
 set wildmenu
 set wildmode=full
 set wildignore=*.swp,*.bak,*.pyc,*.class
+set wildoptions=pum
 set showcmd
 set hlsearch
 set ignorecase

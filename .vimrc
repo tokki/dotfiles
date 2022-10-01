@@ -3,7 +3,6 @@ syntax on
 set encoding=utf-8
 set background=dark
 set nu
-set guifont=Monaco:h13
 colorscheme slate
 set scrolloff=3
 set ruler
@@ -14,16 +13,19 @@ set statusline=%t\ %y\ [line:\ %l]\ [col:\ %c]\ [format:\ %{&ff}]
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set textwidth=80
+set textwidth=79
 set autoindent
 
 autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType go setlocal tabstop=8 shiftwidth=8 softtabstop=8 
+autocmd FileType python nnoremap <leader>f :0,$!yapf<Cr>
+autocmd FileType python nnoremap <leader>r :ter!python3 %<Cr>
+autocmd FileType go nnoremap <leader>f :0,$!gofmt<Cr>
+autocmd FileType go nnoremap <leader>r :ter!go run %<Cr>
 
 set wildmenu
 set wildmode=full
 set wildignore=*.swp,*.bak,*.pyc,*.class
-set wildoptions=pum
 set showcmd
 set hlsearch
 set ignorecase
@@ -67,10 +69,4 @@ map <up>    <nop>
 map <down>  <nop>
 map <left>  <nop>
 map <right> <nop>
-
-if &diff
-    map <leader>1 :diffget LOCAL<CR>
-    map <leader>2 :diffget BASE<CR>
-    map <leader>3 :diffget REMOTE<CR>
-endif
 

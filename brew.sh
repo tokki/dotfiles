@@ -11,7 +11,7 @@ brew install node
 brew install proxychains-ng
 brew install zola
 
-brew install iterm2
+brew install alacritty
 brew install clashx
 brew install iina
 brew install visual-studio-code

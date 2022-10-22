@@ -1,25 +1,13 @@
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<C-p>', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<C-n>', vim.diagnostic.goto_next, opts)
+
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-local lsp_flags = {
-  -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150,
-}
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- luasnip setup
 local luasnip = require 'luasnip'
-
-local on_attach = function(client, bufnr)
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<F5>', vim.lsp.buf.formatting, bufopts)
-end
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
@@ -61,10 +49,22 @@ cmp.setup {
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 local lspconfig = require('lspconfig')
+
+--golang setup
+local go_attach = function(client, bufnr)
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<F5>',function() vim.lsp.buf.format{async=true} end, bufopts)
+end
+
 lspconfig.gopls.setup{
   cmd = {'gopls'},
-  on_attach = on_attach,
-  flags = lsp_flags,
+  on_attach = go_attach,
   capabilities = capabilities,
   settings = {
     gopls = {
@@ -82,3 +82,19 @@ lspconfig.gopls.setup{
   }
 }
 
+--python setup 
+local py_attach = function(client, bufnr)
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<F5>',function() vim.lsp.buf.format{async=true} end, bufopts)
+end
+
+lspconfig.pyright.setup{
+  on_attach = py_attach,
+  capabilities = capabilities,
+}

@@ -2,7 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
-	use 'sainnhe/sonokai'
+	use 'Mofiqul/dracula.nvim'
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/nvim-cmp' 

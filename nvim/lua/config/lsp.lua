@@ -21,7 +21,10 @@ cmp.setup {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm {select = true},
+	['<CR>'] = cmp.mapping.confirm {
+	  behavior = cmp.ConfirmBehavior.Replace,
+	  select = true,
+	},
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -50,21 +53,21 @@ cmp.setup {
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 local lspconfig = require('lspconfig')
 
---golang setup
-local go_attach = function(client, bufnr)
+local on_attach = function(client, bufnr)
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gh', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', 'gk', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<F5>',function() vim.lsp.buf.format{async=true} end, bufopts)
+  vim.keymap.set('n', 'gf',function() vim.lsp.buf.format{async=true} end, bufopts)
 end
 
+--golang setup
 lspconfig.gopls.setup{
   cmd = {'gopls'},
-  on_attach = go_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   settings = {
     gopls = {
@@ -82,19 +85,16 @@ lspconfig.gopls.setup{
   }
 }
 
---python setup 
-local py_attach = function(client, bufnr)
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<F5>',function() vim.lsp.buf.format{async=true} end, bufopts)
-end
-
-lspconfig.pyright.setup{
-  on_attach = py_attach,
+lspconfig.pylsp.setup{
+  on_attach = on_attach,
   capabilities = capabilities,
+  settings = {
+    pylsp = {
+      plugins = {
+		autopep8 = {
+		  enabled = false,
+		}
+      }
+    }
+  }
 }

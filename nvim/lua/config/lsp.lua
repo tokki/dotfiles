@@ -18,13 +18,7 @@ cmp.setup {
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-	['<CR>'] = cmp.mapping.confirm {
-	  behavior = cmp.ConfirmBehavior.Replace,
-	  select = true,
-	},
+	['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -64,6 +58,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gf',function() vim.lsp.buf.format{async=true} end, bufopts)
 end
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 --golang setup
 lspconfig.gopls.setup{
   cmd = {'gopls'},
@@ -98,3 +94,4 @@ lspconfig.pylsp.setup{
     }
   }
 }
+

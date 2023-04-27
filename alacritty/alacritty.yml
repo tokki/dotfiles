@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/dracula.yml
+  - ~/.config/alacritty/tokyonight.yml
 live_config_reload: true
 tabspaces: 4
 window.opacity: 1
@@ -28,13 +28,13 @@ scrolling:
 font:
   size: 14
   normal:
-    family: Monaco
+    family: FiraCode Nerd Font Mono
     style: Regular
   bold:
-    family: Monaco
+    family: FiraCode Nerd Font Mono
     style: Bold
   italic:
-    family: Monaco
+    family: FiraCode Nerd Font Mono
     style: Italic
   offset:
     x: 1
@@ -49,3 +49,7 @@ cursor:
 key_bindings:
   - { key: V, mods: command, action: Paste }
   - { key: C, mods: command, action: Copy }
+  - { key: W, mods: Command, action: Hide }
+  - { key: T, mods: Command, action: CreateNewWindow }
+
+

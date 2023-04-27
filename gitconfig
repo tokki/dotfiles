@@ -3,6 +3,7 @@
 	email = tokki@live.cn
 [core]
 	editor = vim
+	excludesfile = /Users/70k/.gitignore
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3

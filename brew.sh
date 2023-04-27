@@ -10,6 +10,7 @@ brew install go
 brew install node
 brew install proxychains-ng
 brew install zola
+brew install font-fira-code-nerd-font
 
 brew install alacritty
 brew install clashx

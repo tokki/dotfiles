@@ -2,6 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
+	use 'nvim-lualine/lualine.nvim'
 	use 'folke/tokyonight.nvim'
 	use 'nvim-treesitter/nvim-treesitter'
 	use 'neovim/nvim-lspconfig'

@@ -79,16 +79,17 @@ lspconfig.gopls.setup{
   }
 }
 
-lspconfig.pylsp.setup{
+--python setup
+lspconfig.pyright.setup{
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
-    pylsp = {
-      plugins = {
-		autopep8 = {
-		  enabled = false,
-		}
-      }
+	python = {
+	  analysis = {
+		  autoSearchPaths = true,
+		  diagnosticMode = "workspace",
+		  useLibraryCodeForTypes = false
+	  }
     }
   }
 }

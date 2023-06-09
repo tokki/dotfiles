@@ -1,0 +1,43 @@
+{
+  "editor.fontSize": 14,
+  "editor.fontFamily": "'FiraCode Nerd Font Mono', Menlo",
+  "explorer.confirmDragAndDrop": false,
+  "editor.minimap.enabled": true,
+  "git.enabled": false,
+  "explorer.confirmDelete": false,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "[javascript]": {
+    "editor.tabSize": 2,
+  },
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[css]": {
+    "editor.tabSize": 2,
+  },
+  "[scss]": {
+    "editor.tabSize": 2,
+  },
+  "[json]": {
+    "editor.tabSize": 2,
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "html": "html"
+  },
+  "[jsonc]": {
+    "editor.tabSize": 2,
+  },
+  "[javascriptreact]": {
+    "editor.tabSize": 2,
+  },
+  "python.languageServer": "Pylance",
+  "python.formatting.provider": "none",
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.typeCheckingMode": "off",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  }
+}

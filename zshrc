@@ -1,3 +1,5 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 autoload -U compinit
 compinit
 
@@ -23,18 +25,20 @@ setopt rec_exact
 unsetopt autoparamslash
 
 alias grep="grep -n --color"
-alias ls='ls -G'
+
+alias python3="/Users/tokki/python/bin/python3.12"
+alias pip3="/Users/tokki/python/bin/pip3.12"
+export PATH="/Users/tokki/python/bin:$PATH"
 
 
-export GOPATH='/Users/70k/go'
+export GOPATH='/Users/tokki/go'
 export GOPROXY=https://goproxy.cn
 
 
 export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="/Users/70k/go/bin:$PATH"
+export PATH="/Users/tokki/go/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 alias tnew="tmux new -s"

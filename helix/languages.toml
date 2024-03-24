@@ -1,0 +1,7 @@
+use-grammars = { only = ["html","css","json","c","javascript","go","python" ] }
+
+
+[[languages]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }

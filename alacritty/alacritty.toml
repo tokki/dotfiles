@@ -1,38 +1,33 @@
-import = [ "~/.config/alacritty/tokyonight.toml" ]
-live_config_reload = true
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 args = [ "-l" ]
 
 [window]
-dynamic_padding = true
+dynamic_padding = false
 
   [window.dimensions]
   columns = 120
   lines = 36
 
   [window.padding]
-  x = 6
-  y = 18
+  x = 0
+  y = 0
 
 [scrolling]
-history = 10_000
+history = 100000
 multiplier = 20
 
 [font]
 size = 14
 
   [font.normal]
-  family = "FiraCode Nerd Font Mono"
   style = "Regular"
 
   [font.bold]
-  family = "FiraCode Nerd Font Mono"
   style = "Bold"
 
   [font.italic]
-  family = "FiraCode Nerd Font Mono"
   style = "Italic"
 
   [font.offset]
@@ -42,5 +37,11 @@ size = 14
 [cursor.style]
 shape = "Underline"
 blinking = "on"
+
+[general]
+live_config_reload = true
+import = [ "~/.config/alacritty/tokyonight.toml" ]
+
+[terminal]
 
 
